@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in touch with Conscious Family Centre - Contact us via phone, Instagram, or Facebook.">
+  <meta name="theme-color" content="#1f6b3a">
+  <title>Contact Us - Conscious Family Centre</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Floating Bubble Canvas Background -->
+  <canvas id="bubble-canvas"></canvas>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="./index.html" class="logo">
+        <img src="./assets/logo.png" alt="Conscious Family Centre Logo">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="./index.html" class="nav-link">Home</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./programs.html" class="nav-link">Programs</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Page Header -->
+    <section class="hero" style="min-height: 60vh; padding: var(--spacing-xl) var(--spacing-md);">
+      <div class="hero-content">
+        <h1>Get In Touch</h1>
+        <p class="subtitle">Connect with us across multiple platforms</p>
+        <p style="color: #615a52; max-width: 600px; margin: 0 auto;">
+          We're here to answer your questions, share more about our programs, and welcome you into our community.
+        </p>
+      </div>
+    </section>
+
+    <!-- Digital Connect Hub -->
+    <section class="contact-section">
+      <div class="contact-intro">
+        <h2>Digital Connect Hub</h2>
+        <p>Choose your preferred way to reach out. We're active on all channels and respond promptly to all inquiries.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Phone Contact -->
+        <div class="contact-card">
+          <div class="contact-icon">📱</div>
+          <h3>Call or WhatsApp</h3>
+          <p>Reach us directly for immediate assistance with program inquiries, scheduling, or general questions.</p>
+          <a href="tel:+2348035187841" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            0803 518 7841
+          </a>
+          <p style="font-size: 0.85rem; color: #7fa99b; margin-top: var(--spacing-sm);">Available Monday-Saturday</p>
+        </div>
+
+        <!-- Instagram Contact -->
+        <div class="contact-card">
+          <div class="contact-icon">📷</div>
+          <h3>Follow on Instagram</h3>
+          <p>Get daily inspiration, activity updates, and behind-the-scenes moments from our community.</p>
+          <a href="https://www.instagram.com/consciousfamilycenter/" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"></path>
+            </svg>
+            @consciousfamilycenter
+          </a>
+          <p style="font-size: 0.85rem; color: #7fa99b; margin-top: var(--spacing-sm);">DM for quick inquiries</p>
+        </div>
+
+        <!-- Facebook Contact -->
+        <div class="contact-card">
+          <div class="contact-icon">👥</div>
+          <h3>Connect on Facebook</h3>
+          <p>Join our community, see event updates, and stay connected with other families in our circle.</p>
+          <a href="https://www.facebook.com/consciousfamilycenter/" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+            </svg>
+            Conscious Family Center
+          </a>
+          <p style="font-size: 0.85rem; color: #7fa99b; margin-top: var(--spacing-sm);">Active community discussions</p>
+        </div>
+
+        <!-- Location Card -->
+        <div class="contact-card location-card">
+          <div style="font-size: 2.5rem; margin-bottom: var(--spacing-md);">📍</div>
+          <h3>Visit Us</h3>
+          <div class="location-info">
+            <p><strong>Opposite Legacy Centre</strong><br>
+            Wuse 2, Abuja 904101<br>
+            Federal Capital Territory</p>
+            <p style="margin-top: var(--spacing-md);"><strong>Inside BMT Garden</strong><br>
+            Wuse 2, Abuja</p>
+            <p style="margin-top: var(--spacing-lg); font-size: 0.9rem; font-weight: 500; color: #e3927e;">
+              🕐 Open Monday - Saturday, 10:00 AM - 3:00 PM
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Connect With Us -->
+    <section style="background: linear-gradient(135deg, rgba(31, 107, 58, 0.05) 0%, rgba(127, 169, 155, 0.05) 100%); padding: var(--spacing-2xl) var(--spacing-md); margin-top: var(--spacing-2xl);">
+      <div class="container">
+        <h2 class="section-title">Why Connect With Us?</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); max-width: 1000px; margin: 0 auto;">
+          <div style="background: white; padding: var(--spacing-lg); border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(31, 107, 58, 0.08);">
+            <div style="font-size: 2.5rem; margin-bottom: var(--spacing-sm);">🌿</div>
+            <h4 style="color: var(--primary-green); margin-bottom: var(--spacing-sm);">Nature-Connected Learning</h4>
+            <p style="color: #615a52; font-size: 0.95rem;">Discover how we're reimagining childhood through nature-based play and exploration.</p>
+          </div>
+
+          <div style="background: white; padding: var(--spacing-lg); border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(31, 107, 58, 0.08);">
+            <div style="font-size: 2.5rem; margin-bottom: var(--spacing-sm);">👨‍👩‍👧‍👦</div>
+            <h4 style="color: var(--primary-green); margin-bottom: var(--spacing-sm);">Family Community</h4>
+            <p style="color: #615a52; font-size: 0.95rem;">Join a supportive community of conscious parents and caregivers.</p>
+          </div>
+
+          <div style="background: white; padding: var(--spacing-lg); border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(31, 107, 58, 0.08);">
+            <div style="font-size: 2.5rem; margin-bottom: var(--spacing-sm);">🎨</div>
+            <h4 style="color: var(--primary-green); margin-bottom: var(--spacing-sm);">Creative Development</h4>
+            <p style="color: #615a52; font-size: 0.95rem;">Watch your child thrive through play-based learning and creative expression.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="padding: var(--spacing-2xl) var(--spacing-md); text-align: center;">
+      <div class="container">
+        <h3 style="color: var(--primary-green); margin-bottom: var(--spacing-lg);">Ready to Join Our Community?</h3>
+        <p style="color: #615a52; margin-bottom: var(--spacing-lg); font-size: 1.05rem;">
+          Reach out to us today. We'd love to hear from you and help you discover how Conscious Family Centre can support your family's journey.
+        </p>
+        <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+          <a href="tel:+2348035187841" class="btn btn-primary">
+            📞 Call Us Now
+          </a>
+          <a href="https://www.instagram.com/consciousfamilycenter/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            📷 Follow on Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Conscious Family Centre. All rights reserved.</p>
+    <p>Building a community where children and families thrive together.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./script.js"></script>
+</body>
+</html>

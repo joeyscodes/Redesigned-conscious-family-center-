@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore our programs and activities at Conscious Family Centre - from forest school to creative arts and community learning.">
+  <meta name="theme-color" content="#1f6b3a">
+  <title>Programs & Activities - Conscious Family Centre</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Floating Bubble Canvas Background -->
+  <canvas id="bubble-canvas"></canvas>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="./index.html" class="logo">
+        <img src="./assets/logo.png" alt="Conscious Family Centre Logo">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="./index.html" class="nav-link">Home</a></li>
+          <li><a href="./about.html" class="nav-link">About</a></li>
+          <li><a href="./programs.html" class="nav-link">Programs</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Page Header -->
+    <section class="hero" style="min-height: 60vh; padding: var(--spacing-xl) var(--spacing-md);">
+      <div class="hero-content">
+        <h1>Our Programs & Activities</h1>
+        <p class="subtitle">Immersive learning experiences designed for joyful childhood discovery</p>
+      </div>
+    </section>
+
+    <!-- Main Programs Section -->
+    <section class="programs-section">
+      <div class="programs-intro">
+        <h2>Core Programs</h2>
+        <p>We offer comprehensive programs that combine structured learning with unstructured play, community connection, and nature immersion.</p>
+      </div>
+
+      <div class="programs-grid">
+        <!-- Stay and Play Sessions -->
+        <div class="program-card">
+          <div class="program-image-wrapper">
+            <img src="./assets/IMG-20260522-WA0050.jpg" alt="Children playing and learning together during Stay and Play sessions" loading="lazy">
+          </div>
+          <div class="program-content">
+            <span class="program-badge">Weekly</span>
+            <h3>Stay & Play Sessions</h3>
+            <p>Flexible, drop-in sessions where families come together for child-led play, social development, and milestone celebrations. Perfect for children ages 0-5 to explore, connect, and grow at their own pace.</p>
+          </div>
+        </div>
+
+        <!-- Homeschool Hub -->
+        <div class="program-card">
+          <div class="program-image-wrapper">
+            <img src="./assets/IMG-20260522-WA0046.jpg" alt="Homeschool learning environment with library and community space" loading="lazy">
+          </div>
+          <div class="program-content">
+            <span class="program-badge">Full-Time</span>
+            <h3>Homeschool Hub & Community</h3>
+            <p>A dedicated learning space for homeschooling families. Access to library resources, enrichment activities, peer learning opportunities, and parental support. Flexible schedules to suit your family's rhythm.</p>
+          </div>
+        </div>
+
+        <!-- Nanny Intensive Training -->
+        <div class="program-card">
+          <div class="program-image-wrapper">
+            <img src="./assets/IMG-20260522-WA0062.jpg" alt="Professional nanny training and caregiving education" loading="lazy">
+          </div>
+          <div class="program-content">
+            <span class="program-badge">Professional</span>
+            <h3>Nanny Intensive Training</h3>
+            <p>Specialized vocational training for nannies and caregivers. Learn sensory care, child psychology, creative facilitation, safety protocols, and conscious parenting approaches to elevate your professional practice.</p>
+          </div>
+        </div>
+
+        <!-- Holiday Camps & STEAM -->
+        <div class="program-card">
+          <div class="program-image-wrapper">
+            <img src="./assets/IMG-20260522-WA0048.jpg" alt="Holiday camps with STEAM exploration and adventure learning" loading="lazy">
+          </div>
+          <div class="program-content">
+            <span class="program-badge">Seasonal</span>
+            <h3>Holiday Camps & STEAM</h3>
+            <p>Immersive exploration during school breaks. Scavenger hunts, messy play, science experiments, hands-on building, nature tracking, and transport physics. Perfect for curious minds ages 5-10.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Activities Section -->
+    <section style="background: linear-gradient(135deg, rgba(31, 107, 58, 0.05) 0%, rgba(127, 169, 155, 0.05) 100%); padding: var(--spacing-2xl) var(--spacing-md); margin-top: var(--spacing-2xl);">
+      <div class="container">
+        <h2 class="section-title">Weekly Core Activities</h2>
+        <p style="text-align: center; color: #615a52; max-width: 600px; margin: 0 auto var(--spacing-2xl);">
+          These regular activities form the heart of our program, offering children consistent, engaging experiences throughout the week.
+        </p>
+
+        <div class="programs-grid" style="margin-top: var(--spacing-lg);">
+          <!-- Forest School & Outdoor Play -->
+          <div class="program-card">
+            <div class="program-image-wrapper">
+              <img src="./assets/IMG-20260522-WA0040.jpg" alt="Forest school outdoor exploration and nature learning" loading="lazy">
+            </div>
+            <div class="program-content">
+              <span class="program-badge">Outdoor</span>
+              <h3>Forest School & Outdoor Play</h3>
+              <p>Raw exploration of natural terrain. Children navigate woods, discover ecosystems, track wildlife, build shelters, and develop confidence and resilience through unstructured outdoor play.</p>
+            </div>
+          </div>
+
+          <!-- Creative Arts & Crafts -->
+          <div class="program-card">
+            <div class="program-image-wrapper">
+              <img src="./assets/IMG-20260522-WA0042.jpg" alt="Creative arts and crafts with children painting and creating" loading="lazy">
+            </div>
+            <div class="program-content">
+              <span class="program-badge">Creative</span>
+              <h3>Creative Arts & Crafts</h3>
+              <p>Focus on textures, canvas, and fine motor development. Children paint, sculpt, design, and create without pressure. Art becomes a language for expression and exploration.</p>
+            </div>
+          </div>
+
+          <!-- Weekly Enrichment Clubs -->
+          <div class="program-card">
+            <div class="program-image-wrapper">
+              <img src="./assets/IMG-20260522-WA0056.jpg" alt="Weekly enrichment clubs with themed learning" loading="lazy">
+            </div>
+            <div class="program-content">
+              <span class="program-badge">Enrichment</span>
+              <h3>Weekly Enrichment Clubs</h3>
+              <p>Rotating themed clubs including music, dance, storytelling, nature studies, and sensory exploration. Each week brings new discovery and skill-building in a play-based environment.</p>
+            </div>
+          </div>
+
+          <!-- Waka Wednesday Excursions -->
+          <div class="program-card">
+            <div class="program-image-wrapper">
+              <img src="./assets/IMG-20260522-WA0026.jpg" alt="Waka Wednesday excursions and community outings" loading="lazy">
+            </div>
+            <div class="program-content">
+              <span class="program-badge">Adventure</span>
+              <h3>Waka Wednesday Excursions</h3>
+              <p>Weekly adventures exploring community spaces, cultural sites, museums, and natural landmarks. Children learn about their environment and culture through real-world exploration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="testimonials-content">
+        <h2>Certified Community Impact</h2>
+        <p style="text-align: center; color: #615a52; max-width: 700px; margin: 0 auto var(--spacing-2xl);">
+          Hear from our certified caregivers and community partners about the transformative power of conscious, nature-connected learning.
+        </p>
+
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-image">
+              <img src="./assets/IMG-20260522-WA0068.jpg" alt="Certified caregivers with certificates celebrating their training" loading="lazy">
+            </div>
+            <div class="testimonial-quote">
+              <p>"The training I received at Conscious Family Centre transformed not just how I care for children, but how I understand childhood itself. I'm now equipped to create truly nurturing environments where children thrive authentically."</p>
+              <p class="author">— Certified Caregiver, CFC Training Graduate</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-image">
+              <img src="./assets/IMG-20260522-WA0066.jpg" alt="Community of caregivers supporting conscious family practices" loading="lazy">
+            </div>
+            <div class="testimonial-quote">
+              <p>"What amazes me most about Conscious Family Centre is the community. We're not just raising children—we're raising each other. The support, shared values, and genuine care create a space where families feel truly seen."</p>
+              <p class="author">— Parent & Community Member, CFC</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Conscious Family Centre. All rights reserved.</p>
+    <p>Building a community where children and families thrive together.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./script.js"></script>
+</body>
+</html>
