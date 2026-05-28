@@ -132,6 +132,12 @@ section { position: relative; z-index: 1; }
   text-decoration: none;
 }
 .logo-svg-wrap { flex-shrink: 0; }
+.custom-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+}
 .logo-text {
   display: flex;
   flex-direction: column;
