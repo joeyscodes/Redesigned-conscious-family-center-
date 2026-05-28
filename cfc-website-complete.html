@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conscious Family Centre | Where Children Learn Through Play</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>/* ============================================
+   CONSCIOUS FAMILY CENTRE — style.css
+   Premium Cinematic One-Page Website
+   ============================================ */
+
+/* ===== FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap');
+
+/* ===== VARIABLES ===== */
+:root {
+  --green-dark:   #1F6B3A;
+  --green-mid:    #4CAF50;
+  --yellow:       #F4C542;
+  --orange:       #F28C28;
+  --pink:         #E94E77;
+  --purple:       #8E44AD;
+  --blue:         #3498DB;
+  --white:        #FFFFFF;
+  --soft-grey:    #F5F5F5;
+  --text-dark:    #1a2a1a;
+  --text-mid:     #3a5a3a;
+  --text-light:   #6b8f6b;
+  --glass-bg:     rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.15);
+  --glass-bg-light: rgba(255,255,255,0.7);
+  --glass-border-light: rgba(31,107,58,0.15);
+  --shadow-soft:  0 8px 40px rgba(31,107,58,0.12);
+  --shadow-glow:  0 0 40px rgba(76,175,80,0.3);
+  --radius-xl:    24px;
+  --radius-lg:    16px;
+  --radius-md:    12px;
+  --transition:   all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #071210;
+  color: var(--white);
+  overflow-x: hidden;
+  cursor: none;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; }
+button { cursor: none; border: none; background: none; }
+
+/* ===== CUSTOM CURSOR ===== */
+.cursor {
+  width: 10px; height: 10px;
+  background: var(--green-mid);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: difference;
+}
+.cursor-follower {
+  width: 36px; height: 36px;
+  border: 2px solid rgba(76,175,80,0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.12s ease;
+}
+body:has(a:hover) .cursor, body:has(button:hover) .cursor { width: 20px; height: 20px; background: var(--yellow); }
+
+/* ===== CANVAS STAR BACKGROUND ===== */
+#starCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== SECTIONS BASE ===== */
+section { position: relative; z-index: 1; }
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===== GLASS CARD ===== */
+.glass-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-xl);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.2rem 2rem;
+  transition: var(--transition);
+}
+.navbar.scrolled {
+  background: rgba(7,18,16,0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(76,175,80,0.2);
+  padding: 0.85rem 2rem;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+.nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+.logo-svg-wrap { flex-shrink: 0; }
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.logo-line1, .logo-line2, .logo-line3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+.logo-line2 { color: var(--green-mid); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+.nav-link {
+  padding: 0.5rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  border-radius: 999px;
+  transition: var(--transition);
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--white);
+  background: rgba(76,175,80,0.15);
+}
+.nav-cta {
+  margin-left: 0.5rem;
+  padding: 0.55rem 1.4rem;
+  background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(76,175,80,0.4);
+}
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(76,175,80,0.6);
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating shapes */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  animation: floatShape 8s ease-in-out infinite;
+  pointer-events: none;
+}
+.shape-1 { width: 300px; height: 300px; background: var(--green-mid); top: 10%; left: -100px; animation-delay: 0s; animation-duration: 10s; }
+.shape-2 { width: 200px; height: 200px; background: var(--purple); top: 20%; right: -60px; animation-delay: 2s; animation-duration: 8s; }
+.shape-3 { width: 150px; height: 150px; background: var(--yellow); bottom: 30%; left: 10%; animation-delay: 1s; animation-duration: 12s; }
+.shape-4 { width: 250px; height: 250px; background: var(--pink); bottom: 15%; right: 5%; animation-delay: 3s; animation-duration: 9s; }
+.shape-5 { width: 100px; height: 100px; background: var(--blue); top: 50%; left: 40%; animation-delay: 0.5s; animation-duration: 7s; }
+
+@keyframes floatShape {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-30px) rotate(5deg); }
+  66% { transform: translateY(15px) rotate(-5deg); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background: rgba(76,175,80,0.15);
+  border: 1px solid rgba(76,175,80,0.3);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--green-mid);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.badge-dot {
+  width: 8px; height: 8px;
+  background: var(--green-mid);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+}
+.gradient-text {
+  background: linear-gradient(135deg, var(--green-mid), var(--yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-2 {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+.desktop-br { display: block; }
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 8px 32px rgba(76,175,80,0.45);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+  opacity: 0;
+  transition: var(--transition);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(76,175,80,0.65); }
+.btn-primary:hover::before { opacity: 1; }
+.btn-ghost {
+  padding: 0.9rem 2rem;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); transform: translateY(-2px); }
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--yellow);
+  line-height: 1;
+}
+.stat-plus { font-size: 1.2rem; font-weight: 700; color: var(--yellow); }
+.stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; }
+.stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.15); }
+
+/* Scroll hint */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: scrollHint 2s ease-in-out infinite;
+}
+.scroll-mouse {
+  width: 22px; height: 36px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+.scroll-wheel {
+  width: 4px; height: 8px;
+  background: var(--green-mid);
+  border-radius: 2px;
+  animation: scrollWheel 2s ease-in-out infinite;
+}
+@keyframes scrollWheel {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0; }
+}
+@keyframes scrollHint {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ===== SECTION HEADERS ===== */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 1rem;
+  background: rgba(76,175,80,0.12);
+  border: 1px solid rgba(76,175,80,0.25);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--green-mid);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+.section-subtitle {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.55);
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.highlight-green {
+  background: linear-gradient(135deg, var(--green-mid), #8BC34A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.highlight-yellow {
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.highlight-pink {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.section-bg-deco {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.06;
+}
+.about-deco {
+  background: radial-gradient(circle, var(--green-mid), transparent);
+  top: -100px; right: -200px;
+}
+.programs-deco {
+  background: radial-gradient(circle, var(--purple), transparent);
+  bottom: -100px; left: -200px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  align-items: start;
+}
+.about-lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1.2rem;
+}
+.about-lead strong { color: var(--green-mid); }
+.about-lead em { color: var(--yellow); font-style: normal; font-weight: 600; }
+.about-body {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 2rem;
+}
+.about-hours {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: var(--radius-lg);
+}
+.hours-icon { font-size: 1.8rem; }
+.hours-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green-mid); font-weight: 600; margin-bottom: 0.3rem; }
+.hours-time { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+.hours-time strong { color: var(--yellow); }
+
+.mv-stack { display: flex; flex-direction: column; gap: 1.5rem; }
+.mv-card {
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.mv-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+}
+.mv-card:nth-child(1)::before { background: linear-gradient(90deg, var(--green-dark), var(--green-mid)); }
+.mv-card:nth-child(2)::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+.mv-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.mv-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
+.mv-card p { font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+/* Numbers row */
+.numbers-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.number-card {
+  glass-card: true;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.n-num { font-size: 3rem; font-weight: 900; display: block; line-height: 1; color: var(--white); }
+.n-plus { font-size: 1.5rem; font-weight: 700; color: rgba(255,255,255,0.6); }
+.n-label { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.5rem; letter-spacing: 0.05em; }
+.n-bar { height: 3px; border-radius: 2px; width: 40px; margin: 1rem auto 0; }
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.testi-card {
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  transition: var(--transition);
+}
+.testi-stars { color: var(--yellow); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+.testi-text {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  font-family: 'Nunito', sans-serif;
+}
+.testi-author { display: flex; align-items: center; gap: 0.75rem; }
+.testi-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  flex-shrink: 0;
+}
+.testi-author strong { display: block; font-size: 0.88rem; color: var(--white); }
+.testi-author span { display: block; font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+
+/* ===== PROGRAMS SECTION ===== */
+.programs-section {
+  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.programs-label {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.programs-label-text {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(90deg, var(--green-dark), var(--green-mid));
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.program-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.program-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.2); }
+.program-glow {
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(60px);
+  transition: var(--transition);
+}
+.program-card:hover .program-glow { opacity: 0.15; }
+.program-icon-wrap {
+  width: 64px; height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.program-icon { font-size: 1.8rem; }
+.program-content h3 { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
+.program-content p { font-size: 0.9rem; color: rgba(255,255,255,0.62); line-height: 1.7; margin-bottom: 1.2rem; }
+.program-features { display: flex; flex-direction: column; gap: 0.5rem; }
+.program-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+}
+.feat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.activity-card {
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  transition: var(--transition);
+}
+.activity-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.1); }
+.activity-emoji { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+.activity-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; line-height: 1.4; }
+.activity-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 1.2rem; }
+.activity-tag {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  padding: 7rem 0;
+  position: relative;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.contact-card {
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-xl);
+  transition: var(--transition);
+  text-align: center;
+}
+.contact-card:hover { transform: translateY(-6px); }
+.contact-icon-wrap {
+  width: 72px; height: 72px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.contact-card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); font-weight: 600; margin-bottom: 0.5rem; }
+.contact-value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.contact-value.small { font-size: 0.95rem; font-weight: 500; line-height: 1.6; }
+.contact-value.social-handle { color: var(--white); font-size: 1rem; margin-bottom: 0.5rem; }
+.contact-note { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+.contact-link { font-size: 0.85rem; color: var(--orange); font-weight: 600; }
+
+/* Social glow */
+.social-link-full { display: flex; flex-direction: column; align-items: center; color: inherit; text-decoration: none; }
+.social-glow { position: relative; }
+.instagram-glow {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045) !important;
+  animation: socialGlow 2.5s ease-in-out infinite alternate;
+}
+.facebook-glow {
+  background: linear-gradient(135deg, #1877F2, #42a5f5) !important;
+  animation: socialGlow 2.5s ease-in-out infinite alternate;
+}
+@keyframes socialGlow {
+  0% { box-shadow: 0 0 20px rgba(253,29,29,0.6), 0 0 40px rgba(131,58,180,0.4); }
+  100% { box-shadow: 0 0 40px rgba(253,29,29,0.9), 0 0 80px rgba(131,58,180,0.6); }
+}
+.social-glow-card.contact-card:has(.instagram-glow) {
+  border-color: rgba(253,29,29,0.3) !important;
+}
+.social-glow-card.contact-card:has(.facebook-glow) {
+  border-color: rgba(24,119,242,0.3) !important;
+}
+.social-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  transition: var(--transition);
+}
+.social-link-full:hover .social-cta { background: rgba(255,255,255,0.2); color: var(--white); }
+
+.hours-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(76,175,80,0.25);
+  background: rgba(31,107,58,0.15);
+}
+.hours-banner-icon { font-size: 2rem; flex-shrink: 0; }
+.hours-banner-text { display: flex; flex-direction: column; gap: 0.2rem; }
+.hours-banner-text strong { font-size: 1rem; color: var(--white); }
+.hours-banner-text span { font-size: 0.88rem; color: rgba(255,255,255,0.6); }
+
+/* ===== FAQ SECTION ===== */
+.faq-section {
+  padding: 7rem 0;
+  position: relative;
+}
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.faq-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.faq-item.open {
+  background: rgba(31,107,58,0.15);
+  border-color: rgba(76,175,80,0.3);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 1rem;
+}
+.faq-question span { flex: 1; }
+.faq-icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(76,175,80,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+  font-size: 1.2rem;
+  color: var(--green-mid);
+}
+.faq-item.open .faq-icon { background: var(--green-mid); color: white; transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.faq-answer p {
+  padding: 0 1.5rem 1.3rem;
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+}
+.faq-answer p strong { color: var(--green-mid); }
+.faq-answer p em { color: var(--yellow); font-style: normal; }
+.faq-item.open .faq-answer { max-height: 300px; }
+
+/* ===== FOOTER ===== */
+.footer {
+  position: relative;
+  background: rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(76,175,80,0.15);
+  padding: 5rem 0 2rem;
+  overflow: hidden;
+}
+.footer-glow {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(circle, rgba(76,175,80,0.15), transparent);
+  pointer-events: none;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+.footer-logo { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; }
+.footer-logo-text { display: flex; flex-direction: column; font-size: 0.8rem; font-weight: 700; color: var(--white); line-height: 1.3; text-transform: lowercase; }
+.footer-logo-text span:last-child { color: var(--green-mid); }
+.footer-tagline { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 1.5rem; }
+.footer-socials { display: flex; gap: 0.75rem; }
+.footer-social {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: var(--transition);
+}
+.footer-social.instagram-glow:hover {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(253,29,29,0.6);
+}
+.footer-social.facebook-glow:hover {
+  background: linear-gradient(135deg, #1877F2, #42a5f5);
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(24,119,242,0.6);
+}
+/* Always glow (subtle) */
+.footer-social.instagram-glow {
+  animation: footerIgGlow 3s ease-in-out infinite alternate;
+}
+.footer-social.facebook-glow {
+  animation: footerFbGlow 3s ease-in-out infinite alternate;
+}
+@keyframes footerIgGlow {
+  0% { box-shadow: 0 0 8px rgba(253,29,29,0.3); }
+  100% { box-shadow: 0 0 20px rgba(131,58,180,0.6); }
+}
+@keyframes footerFbGlow {
+  0% { box-shadow: 0 0 8px rgba(24,119,242,0.3); }
+  100% { box-shadow: 0 0 20px rgba(66,165,245,0.6); }
+}
+
+.footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 1.2rem; }
+.footer-col ul { display: flex; flex-direction: column; gap: 0.65rem; }
+.footer-col ul a { font-size: 0.88rem; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--green-mid); }
+.footer-address { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 0.5rem; }
+.footer-hours { font-size: 0.82rem; color: var(--yellow); font-weight: 600; margin-bottom: 1rem; }
+.footer-phone { font-size: 0.95rem; font-weight: 700; color: var(--green-mid); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+.love-heart { color: var(--pink); }
+.footer-love { color: rgba(255,255,255,0.5) !important; }
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+  box-shadow: 0 8px 24px rgba(31,107,58,0.5);
+  cursor: pointer;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(31,107,58,0.7); }
+
+/* ===== TILT CARD ===== */
+.tilt-card { transform-style: preserve-3d; }
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal-up, .reveal-left, .reveal-right {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-up.visible, .reveal-left.visible, .reveal-right.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* Hero specific reveals */
+.hero-content .reveal-up {
+  animation: heroReveal 0.9s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
+  opacity: 0;
+}
+.hero-content .delay-1 { animation-delay: 0.3s; }
+.hero-content .delay-2 { animation-delay: 0.5s; }
+.hero-content .delay-3 { animation-delay: 0.7s; }
+.hero-content .delay-4 { animation-delay: 0.9s; }
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .numbers-row { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .activities-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 80vw; max-width: 320px;
+    height: 100vh;
+    background: rgba(7,18,16,0.98);
+    backdrop-filter: blur(30px);
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: right 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    z-index: 999;
+    border-left: 1px solid rgba(76,175,80,0.2);
+  }
+  .nav-links.open { right: 0; }
+  .nav-link { font-size: 1.1rem; }
+  .nav-cta { margin-left: 0; }
+
+  .hero-title { font-size: 2.5rem; }
+  .desktop-br { display: none; }
+  .hero-stats { gap: 1rem; }
+
+  .programs-grid { grid-template-columns: 1fr; }
+  .activities-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .numbers-row { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .hours-banner { flex-direction: column; text-align: center; }
+  .cursor, .cursor-follower { display: none; }
+  body { cursor: auto; }
+  button { cursor: pointer; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 2rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-ghost { text-align: center; justify-content: center; }
+  .stat-divider { display: none; }
+  .container { padding: 0 1.25rem; }
+  .numbers-row { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+
+/* ===== HERO PARTICLES (minor floating dots) ===== */
+.hero-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+  opacity: 0;
+}
+@keyframes particleFloat {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- CANVAS BACKGROUND -->
+<canvas id="starCanvas"></canvas>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <div class="logo-svg-wrap">
+        <!-- SVG Logo recreation of CFC logo -->
+        <svg width="56" height="56" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ground hill -->
+          <ellipse cx="60" cy="98" rx="52" ry="12" fill="#1F6B3A" opacity="0.3"/>
+          <!-- House body -->
+          <rect x="44" y="68" width="32" height="26" rx="3" fill="#1F6B3A"/>
+          <!-- Door -->
+          <rect x="54" y="78" width="12" height="16" rx="2" fill="#fff" opacity="0.9"/>
+          <!-- Left tree trunk -->
+          <rect x="20" y="72" width="6" height="20" rx="3" fill="#1F6B3A"/>
+          <!-- Right tree trunk -->
+          <rect x="94" y="72" width="6" height="20" rx="3" fill="#1F6B3A"/>
+          <!-- Left person arms up -->
+          <circle cx="23" cy="64" r="5" fill="#1F6B3A"/>
+          <line x1="14" y1="70" x2="32" y2="70" stroke="#1F6B3A" stroke-width="4" stroke-linecap="round"/>
+          <!-- Right person arms up -->
+          <circle cx="97" cy="64" r="5" fill="#1F6B3A"/>
+          <line x1="88" y1="70" x2="106" y2="70" stroke="#1F6B3A" stroke-width="4" stroke-linecap="round"/>
+          <!-- Colorful leaves - left tree -->
+          <circle cx="14" cy="46" r="7" fill="#E94E77" opacity="0.9"/>
+          <circle cx="24" cy="38" r="7" fill="#F4C542" opacity="0.9"/>
+          <circle cx="34" cy="44" r="7" fill="#4CAF50" opacity="0.9"/>
+          <circle cx="16" cy="56" r="6" fill="#3498DB" opacity="0.9"/>
+          <circle cx="30" cy="54" r="6" fill="#8E44AD" opacity="0.9"/>
+          <circle cx="22" cy="30" r="5" fill="#F28C28" opacity="0.9"/>
+          <!-- Colorful leaves - right tree -->
+          <circle cx="106" cy="46" r="7" fill="#4CAF50" opacity="0.9"/>
+          <circle cx="96" cy="38" r="7" fill="#E94E77" opacity="0.9"/>
+          <circle cx="86" cy="44" r="7" fill="#F4C542" opacity="0.9"/>
+          <circle cx="104" cy="56" r="6" fill="#F28C28" opacity="0.9"/>
+          <circle cx="90" cy="54" r="6" fill="#3498DB" opacity="0.9"/>
+          <circle cx="98" cy="30" r="5" fill="#8E44AD" opacity="0.9"/>
+          <!-- Center crown leaves -->
+          <circle cx="52" cy="52" r="8" fill="#4CAF50" opacity="0.9"/>
+          <circle cx="60" cy="44" r="9" fill="#1F6B3A" opacity="0.9"/>
+          <circle cx="68" cy="52" r="8" fill="#4CAF50" opacity="0.9"/>
+          <circle cx="60" cy="58" r="7" fill="#1F6B3A" opacity="0.8"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-line1">conscious</span>
+        <span class="logo-line2">family</span>
+        <span class="logo-line3">centre</span>
+      </div>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#programs" class="nav-link">Programs</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========== SECTION 1: HOME / HERO ========== -->
+<section id="home" class="hero-section">
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-content">
+    <div class="hero-badge reveal-up">
+      <span class="badge-dot"></span>
+      Nature-Connected Learning · Abuja, Nigeria
+    </div>
+    <h1 class="hero-title reveal-up delay-1">
+      Where <span class="gradient-text">Children Grow</span><br>
+      and <span class="gradient-text-2">Families Bloom</span>
+    </h1>
+    <p class="hero-subtitle reveal-up delay-2">
+      A safe, nurturing space in the heart of Abuja where little ones<br class="desktop-br">
+      learn through play, explore through nature, and families thrive together.
+    </p>
+    <div class="hero-actions reveal-up delay-3">
+      <a href="#programs" class="btn-primary">
+        <span>Explore Programs</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#about" class="btn-ghost">Learn Our Story</a>
+    </div>
+    <div class="hero-stats reveal-up delay-4">
+      <div class="stat-item">
+        <span class="stat-num" data-target="200">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Families Served</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="4">0</span>
+        <span class="stat-label">Core Programs</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="5">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Years of Joy</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <span>Scroll to explore</span>
+  </div>
+
+  <!-- Floating 3D shapes -->
+  <div class="floating-shape shape-1"></div>
+  <div class="floating-shape shape-2"></div>
+  <div class="floating-shape shape-3"></div>
+  <div class="floating-shape shape-4"></div>
+  <div class="floating-shape shape-5"></div>
+</section>
+
+<!-- ========== SECTION 2: ABOUT ========== -->
+<section id="about" class="about-section">
+  <div class="section-bg-deco about-deco"></div>
+  <div class="container">
+
+    <div class="section-header reveal-up">
+      <div class="section-tag">
+        <span class="tag-leaf">🌿</span> About Us
+      </div>
+      <h2 class="section-title">More Than a Playgroup.<br><span class="highlight-green">A Community.</span></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text-block reveal-left">
+        <p class="about-lead">
+          The <strong>Conscious Family Centre (CFC)</strong> is a nature-connected alternative education and family playgroup space in Abuja designed for children ages <em>0 to 10</em>.
+        </p>
+        <p class="about-body">
+          We offer stay-and-play sessions, a homeschool hub, and community support for parents and caregivers — all within a thoughtful, warm, and intentional environment that honours the child's natural way of learning.
+        </p>
+        <div class="about-hours glass-card">
+          <div class="hours-icon">🕙</div>
+          <div>
+            <p class="hours-title">Opening Hours</p>
+            <p class="hours-time">Monday – Saturday &nbsp;|&nbsp; <strong>10:00 AM – 3:00 PM</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission & Vision -->
+      <div class="mv-stack reveal-right">
+        <div class="mv-card glass-card tilt-card" data-color="#1F6B3A">
+          <div class="mv-icon">🌱</div>
+          <h3>Our Mission</h3>
+          <p>To create a safe, joy-filled, and intentional space where children aged 0–10 discover themselves through nature, creativity, and conscious play — while empowering families with the community and tools they need to thrive.</p>
+        </div>
+        <div class="mv-card glass-card tilt-card" data-color="#8E44AD">
+          <div class="mv-icon">🔭</div>
+          <h3>Our Vision</h3>
+          <p>To be Abuja's leading nature-inspired family learning hub — pioneering a new standard of holistic, conscious early childhood education that nurtures the whole child: mind, body, and spirit.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Numbers -->
+    <div class="numbers-row reveal-up">
+      <div class="number-card tilt-card">
+        <span class="n-num" data-target="200">0</span><span class="n-plus">+</span>
+        <span class="n-label">Families Welcomed</span>
+        <div class="n-bar" style="background:#1F6B3A"></div>
+      </div>
+      <div class="number-card tilt-card">
+        <span class="n-num" data-target="98">0</span><span class="n-plus">%</span>
+        <span class="n-label">Parent Satisfaction</span>
+        <div class="n-bar" style="background:#F4C542"></div>
+      </div>
+      <div class="number-card tilt-card">
+        <span class="n-num" data-target="12">0</span><span class="n-plus">+</span>
+        <span class="n-label">Weekly Activities</span>
+        <div class="n-bar" style="background:#E94E77"></div>
+      </div>
+      <div class="number-card tilt-card">
+        <span class="n-num" data-target="5">0</span><span class="n-plus">+</span>
+        <span class="n-label">Years of Impact</span>
+        <div class="n-bar" style="background:#8E44AD"></div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="section-header reveal-up" style="margin-top:5rem">
+      <div class="section-tag">
+        <span class="tag-leaf">💬</span> Families Say It Best
+      </div>
+      <h2 class="section-title">Stories That <span class="highlight-yellow">Warm Our Hearts</span></h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testi-card glass-card tilt-card reveal-up delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"CFC completely transformed how my daughter relates to learning. She wakes up every morning asking to go to the Centre. The staff are warm, intentional, and truly conscious parents themselves."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#1F6B3A">A</div>
+          <div>
+            <strong>Amaka O.</strong>
+            <span>Mother of 2 · Maitama, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The Homeschool Hub gave us the community we desperately needed as new homeschool parents. My son made friends, gained structure, and absolutely loves Waka Wednesdays!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#F28C28">B</div>
+          <div>
+            <strong>Biodun K.</strong>
+            <span>Father of 1 · Wuse, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The Nanny Training program was incredibly eye-opening. My nanny came back with so much confidence, knowledge, and real practical skills. The difference is night and day!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#E94E77">C</div>
+          <div>
+            <strong>Chioma B.</strong>
+            <span>Parent · Garki, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Forest School sessions are genuinely magical. Watching my shy 4-year-old blossom into a curious, confident explorer — right here in Abuja — is something I never expected."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#8E44AD">F</div>
+          <div>
+            <strong>Fatimah A.</strong>
+            <span>Mother of 3 · Asokoro, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The STEAM Holiday Camp kept my twins engaged, creative, and learning all through the break. Absolutely worth every moment. We'll be back every holiday!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#3498DB">O</div>
+          <div>
+            <strong>Obinna E.</strong>
+            <span>Parent of Twins · Gwarinpa, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"CFC is not just a programme — it's a lifestyle. We've met our closest parent friends here. The community evenings, the shared values, it's really special. Abuja needs more of this."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#F4C542">N</div>
+          <div>
+            <strong>Ngozi L.</strong>
+            <span>Community Member · Utako, Abuja</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 3: PROGRAMS ========== -->
+<section id="programs" class="programs-section">
+  <div class="section-bg-deco programs-deco"></div>
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-tag">
+        <span class="tag-leaf">🌳</span> What We Offer
+      </div>
+      <h2 class="section-title">Programs Built for <span class="highlight-pink">Little Explorers</span></h2>
+      <p class="section-subtitle">Every child is unique. Every program is crafted with love, intention, and research-backed methodology.</p>
+    </div>
+
+    <!-- Core Programs -->
+    <div class="programs-label reveal-up">
+      <span class="programs-label-text">✦ Core Programs</span>
+    </div>
+
+    <div class="programs-grid">
+      <div class="program-card tilt-card reveal-up delay-1" data-accent="#1F6B3A">
+        <div class="program-icon-wrap" style="background:linear-gradient(135deg,#1F6B3A,#4CAF50)">
+          <span class="program-icon">🏡</span>
+        </div>
+        <div class="program-content">
+          <h3>Stay &amp; Play Sessions</h3>
+          <p>Drop in with your little one for structured, nature-inspired free play. Perfect for children 0–5 and caregivers who want guided playtime in a safe, stimulating environment.</p>
+          <ul class="program-features">
+            <li><span class="feat-dot" style="background:#4CAF50"></span>Ages 0 – 5</li>
+            <li><span class="feat-dot" style="background:#4CAF50"></span>Drop-in friendly</li>
+            <li><span class="feat-dot" style="background:#4CAF50"></span>Guided by educators</li>
+          </ul>
+        </div>
+        <div class="program-glow" style="background:#1F6B3A"></div>
+      </div>
+
+      <div class="program-card tilt-card reveal-up delay-2" data-accent="#3498DB">
+        <div class="program-icon-wrap" style="background:linear-gradient(135deg,#1a6fa0,#3498DB)">
+          <span class="program-icon">📚</span>
+        </div>
+        <div class="program-content">
+          <h3>Homeschool Hub &amp; Community</h3>
+          <p>A dedicated co-learning space for homeschooling families — with curriculum support, peer socialisation, parent circles, and expert-led enrichment sessions.</p>
+          <ul class="program-features">
+            <li><span class="feat-dot" style="background:#3498DB"></span>Ages 4 – 10</li>
+            <li><span class="feat-dot" style="background:#3498DB"></span>Curriculum aligned</li>
+            <li><span class="feat-dot" style="background:#3498DB"></span>Parent community</li>
+          </ul>
+        </div>
+        <div class="program-glow" style="background:#3498DB"></div>
+      </div>
+
+      <div class="program-card tilt-card reveal-up delay-3" data-accent="#F28C28">
+        <div class="program-icon-wrap" style="background:linear-gradient(135deg,#c56a0a,#F28C28)">
+          <span class="program-icon">👩‍🏫</span>
+        </div>
+        <div class="program-content">
+          <h3>Nanny Intensive Training</h3>
+          <p>Professional development for caregivers covering child development, age-appropriate play, nutrition basics, emotional intelligence, and conscious caregiving techniques.</p>
+          <ul class="program-features">
+            <li><span class="feat-dot" style="background:#F28C28"></span>Certificate awarded</li>
+            <li><span class="feat-dot" style="background:#F28C28"></span>Practical skills</li>
+            <li><span class="feat-dot" style="background:#F28C28"></span>Expert trainers</li>
+          </ul>
+        </div>
+        <div class="program-glow" style="background:#F28C28"></div>
+      </div>
+
+      <div class="program-card tilt-card reveal-up delay-1" data-accent="#8E44AD">
+        <div class="program-icon-wrap" style="background:linear-gradient(135deg,#6a1fa0,#8E44AD)">
+          <span class="program-icon">🚀</span>
+        </div>
+        <div class="program-content">
+          <h3>Holiday Camps &amp; S.T.E.A.M</h3>
+          <p>Action-packed holiday programmes featuring Scavenger Hunts, Messy Play, Science experiments, Technology discovery, Engineering challenges, Art, and Math adventures.</p>
+          <ul class="program-features">
+            <li><span class="feat-dot" style="background:#8E44AD"></span>Ages 3 – 10</li>
+            <li><span class="feat-dot" style="background:#8E44AD"></span>Holiday periods</li>
+            <li><span class="feat-dot" style="background:#8E44AD"></span>Hands-on STEAM</li>
+          </ul>
+        </div>
+        <div class="program-glow" style="background:#8E44AD"></div>
+      </div>
+    </div>
+
+    <!-- Core Activities -->
+    <div class="programs-label reveal-up" style="margin-top:4rem">
+      <span class="programs-label-text" style="background:linear-gradient(90deg,#E94E77,#F28C28)">✦ Core Activities</span>
+    </div>
+
+    <div class="activities-grid">
+      <div class="activity-card glass-card tilt-card reveal-up delay-1">
+        <div class="activity-emoji">🌲</div>
+        <h3>Forest School &amp; Outdoor Play</h3>
+        <p>Children explore nature freely — climbing, digging, building, observing. Research-backed forest schooling that nurtures resilience, curiosity, and deep environmental connection.</p>
+        <div class="activity-tag" style="color:#1F6B3A;border-color:#1F6B3A">Nature-Immersive</div>
+      </div>
+      <div class="activity-card glass-card tilt-card reveal-up delay-2">
+        <div class="activity-emoji">🎨</div>
+        <h3>Creative Arts &amp; Crafts</h3>
+        <p>From painting and sculpture to collage and printmaking — open-ended creative expression that builds fine motor skills, self-confidence, and artistic sensibility in every child.</p>
+        <div class="activity-tag" style="color:#E94E77;border-color:#E94E77">Creative Expression</div>
+      </div>
+      <div class="activity-card glass-card tilt-card reveal-up delay-3">
+        <div class="activity-emoji">🎯</div>
+        <h3>Weekly Enrichment Clubs</h3>
+        <p>Rotating themed clubs covering chess, storytelling, cooking, music, movement and more — giving children new challenges, friendships, and joyful skill-building every single week.</p>
+        <div class="activity-tag" style="color:#F28C28;border-color:#F28C28">Skill Building</div>
+      </div>
+      <div class="activity-card glass-card tilt-card reveal-up delay-1">
+        <div class="activity-emoji">🚌</div>
+        <h3>Waka Wednesday Excursions</h3>
+        <p>Every Wednesday is an adventure! Children visit museums, parks, farms, cultural sites, and community spaces — expanding their world and growing into curious, confident citizens.</p>
+        <div class="activity-tag" style="color:#3498DB;border-color:#3498DB">Community Exploration</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 4: CONTACT ========== -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-tag">
+        <span class="tag-leaf">📍</span> Find Us
+      </div>
+      <h2 class="section-title">Come Say <span class="highlight-yellow">Hello</span> 👋</h2>
+      <p class="section-subtitle">We'd love to welcome you and your little ones into our community.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Phone -->
+      <div class="contact-card glass-card tilt-card reveal-up delay-1">
+        <div class="contact-icon-wrap" style="background:linear-gradient(135deg,#1F6B3A,#4CAF50)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <h3>Call Us</h3>
+        <a href="tel:08035183784" class="contact-value">08035183784</a>
+        <p class="contact-note">Mon–Sat · 10AM–3PM</p>
+      </div>
+
+      <!-- Location -->
+      <div class="contact-card glass-card tilt-card reveal-up delay-2">
+        <div class="contact-icon-wrap" style="background:linear-gradient(135deg,#F28C28,#F4C542)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Find Us</h3>
+        <p class="contact-value small">Opp. Legacy Centre, Wuse 2<br>Abuja · Inside BMT Garden</p>
+        <a href="https://maps.google.com/?q=Wuse+2+Abuja" target="_blank" class="contact-link">Open in Maps ↗</a>
+      </div>
+
+      <!-- Instagram -->
+      <div class="contact-card glass-card tilt-card reveal-up delay-3 social-glow-card" data-glow="#E94E77">
+        <a href="https://www.instagram.com/consciousfamilycentre/" target="_blank" class="social-link-full">
+          <div class="contact-icon-wrap social-glow instagram-glow">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <h3>Instagram</h3>
+          <span class="contact-value social-handle">@consciousfamilycentre</span>
+          <span class="social-cta">Visit our Page ✦</span>
+        </a>
+      </div>
+
+      <!-- Facebook -->
+      <div class="contact-card glass-card tilt-card reveal-up delay-1 social-glow-card" data-glow="#3498DB">
+        <a href="https://www.facebook.com/reel/1488788116158630/?app=fbl" target="_blank" class="social-link-full">
+          <div class="contact-icon-wrap social-glow facebook-glow">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </div>
+          <h3>Facebook</h3>
+          <span class="contact-value social-handle">Conscious Family Centre</span>
+          <span class="social-cta">Visit our Page ✦</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hours bar -->
+    <div class="hours-banner reveal-up glass-card">
+      <div class="hours-banner-icon">🕙</div>
+      <div class="hours-banner-text">
+        <strong>We're open Monday – Saturday</strong>
+        <span>10:00 AM &nbsp;–&nbsp; 3:00 PM &nbsp;·&nbsp; Come visit us at BMT Garden, Wuse 2, Abuja</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 5: FAQ ========== -->
+<section id="faq" class="faq-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-tag">
+        <span class="tag-leaf">❓</span> Questions
+      </div>
+      <h2 class="section-title">Frequently Asked <span class="highlight-green">Questions</span></h2>
+      <p class="section-subtitle">Everything you need to know before you visit us for the first time.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item reveal-up delay-1">
+        <button class="faq-question" aria-expanded="false">
+          <span>What age groups does CFC cater for?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>CFC warmly welcomes children aged <strong>0 to 10 years</strong>. Our programmes are carefully designed to match different developmental stages — from babies and toddlers in Stay &amp; Play, to older children in the Homeschool Hub and STEAM camps.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-2">
+        <button class="faq-question" aria-expanded="false">
+          <span>Do I need to book in advance?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>For <strong>Stay &amp; Play</strong> sessions, drop-ins are welcome! For Homeschool Hub, Nanny Training, and Holiday Camps, we do recommend contacting us in advance to confirm availability and secure a spot.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-3">
+        <button class="faq-question" aria-expanded="false">
+          <span>What makes CFC different from a regular daycare or school?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>CFC is <strong>not a daycare or conventional school</strong>. We are a conscious, nature-connected learning community. Our philosophy is rooted in child-led play, forest schooling, emotional intelligence, creative expression, and community — values that are rarely found in traditional childcare settings in Abuja.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-1">
+        <button class="faq-question" aria-expanded="false">
+          <span>Can parents stay during the sessions?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely! Many of our sessions are designed as <strong>stay-and-play</strong> experiences where parents and caregivers are encouraged to participate. We believe in whole-family engagement and building a strong parent community.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-2">
+        <button class="faq-question" aria-expanded="false">
+          <span>What is Waka Wednesday?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>"Waka" means "to walk/go" in Nigerian Pidgin. <strong>Waka Wednesday</strong> is our beloved weekly excursion day where children venture out into Abuja — visiting museums, parks, farms, cultural spaces, and community places to expand their worldview and build confidence in real-world settings.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-3">
+        <button class="faq-question" aria-expanded="false">
+          <span>Is CFC only for homeschoolers?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>Not at all! While we have a dedicated Homeschool Hub, CFC is open to <strong>all families</strong> — whether your children attend conventional school, are homeschooled, or are still too young for school. We are a community space for everyone who values conscious, nature-connected childhood.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-1">
+        <button class="faq-question" aria-expanded="false">
+          <span>What should my child wear or bring?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>Comfortable, <strong>play-friendly clothing</strong> is best — we get messy, muddy, and creative! Closed shoes are recommended for outdoor sessions. For Stay &amp; Play, you can bring snacks and a change of clothes. We provide all art and craft materials.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-2">
+        <button class="faq-question" aria-expanded="false">
+          <span>How do I enrol or find out more?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>The easiest way is to <strong>call or WhatsApp us on 08035183784</strong>, or send us a DM on Instagram <em>@consciousfamilycentre</em>. You can also simply visit us during opening hours (Mon–Sat, 10AM–3PM) at BMT Garden, Wuse 2, Abuja — we'd love to show you around!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-glow"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="44" height="44" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="98" rx="52" ry="12" fill="#4CAF50" opacity="0.3"/>
+            <rect x="44" y="68" width="32" height="26" rx="3" fill="#4CAF50"/>
+            <rect x="54" y="78" width="12" height="16" rx="2" fill="#1F6B3A" opacity="0.8"/>
+            <rect x="20" y="72" width="6" height="20" rx="3" fill="#4CAF50"/>
+            <rect x="94" y="72" width="6" height="20" rx="3" fill="#4CAF50"/>
+            <circle cx="23" cy="64" r="5" fill="#4CAF50"/>
+            <circle cx="97" cy="64" r="5" fill="#4CAF50"/>
+            <circle cx="14" cy="46" r="7" fill="#E94E77"/>
+            <circle cx="24" cy="38" r="7" fill="#F4C542"/>
+            <circle cx="34" cy="44" r="7" fill="#4CAF50"/>
+            <circle cx="16" cy="56" r="6" fill="#3498DB"/>
+            <circle cx="30" cy="54" r="6" fill="#8E44AD"/>
+            <circle cx="106" cy="46" r="7" fill="#4CAF50"/>
+            <circle cx="96" cy="38" r="7" fill="#E94E77"/>
+            <circle cx="86" cy="44" r="7" fill="#F4C542"/>
+            <circle cx="104" cy="56" r="6" fill="#F28C28"/>
+            <circle cx="90" cy="54" r="6" fill="#3498DB"/>
+            <circle cx="52" cy="52" r="8" fill="#4CAF50"/>
+            <circle cx="60" cy="44" r="9" fill="#fff" opacity="0.9"/>
+            <circle cx="68" cy="52" r="8" fill="#4CAF50"/>
+          </svg>
+          <div class="footer-logo-text">
+            <span>conscious</span>
+            <span>family centre</span>
+          </div>
+        </div>
+        <p class="footer-tagline">A safe, nurturing space where children learn through play, and families grow together.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/consciousfamilycentre/" target="_blank" class="footer-social instagram-glow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/reel/1488788116158630/?app=fbl" target="_blank" class="footer-social facebook-glow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#programs">Stay &amp; Play</a></li>
+          <li><a href="#programs">Homeschool Hub</a></li>
+          <li><a href="#programs">Nanny Training</a></li>
+          <li><a href="#programs">Holiday Camps</a></li>
+          <li><a href="#programs">Waka Wednesday</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <p class="footer-address">Opp. Legacy Centre, Wuse 2, Abuja<br>Inside BMT Garden</p>
+        <p class="footer-hours">Mon–Sat · 10:00 AM – 3:00 PM</p>
+        <a href="tel:08035183784" class="footer-phone">📞 08035183784</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Conscious Family Centre · Abuja, Nigeria · All rights reserved</p>
+      <p class="footer-love">Made with <span class="love-heart">♥</span> for conscious families</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script>/* ============================================
+   CONSCIOUS FAMILY CENTRE — script.js
+   Cinematic 3D Animations & Interactions
+   ============================================ */
+
+'use strict';
+
+/* ===== CUSTOM CURSOR ===== */
+const cursor = document.getElementById('cursor');
+const cursorFollower = document.getElementById('cursorFollower');
+let mouseX = 0, mouseY = 0;
+let followerX = 0, followerY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top  = mouseY + 'px';
+});
+
+function animateCursor() {
+  followerX += (mouseX - followerX) * 0.12;
+  followerY += (mouseY - followerY) * 0.12;
+  cursorFollower.style.left = followerX + 'px';
+  cursorFollower.style.top  = followerY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+/* ===== STAR CANVAS ===== */
+(function () {
+  const canvas = document.getElementById('starCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Brand accent colors
+  const COLORS = [
+    '#4CAF50', '#1F6B3A', '#8BC34A',
+    '#F4C542', '#F28C28',
+    '#E94E77',
+    '#8E44AD',
+    '#3498DB',
+    '#ffffff',
+    '#a8ffb8',
+  ];
+
+  let W, H, stars = [], sparks = [], nebulas = [];
+  let time = 0;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  // ---- STARS ----
+  class Star {
+    constructor() { this.init(); }
+    init() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.z = Math.random() * 1 + 0.3;       // depth
+      this.baseR = Math.random() * 1.5 + 0.4;
+      this.r = this.baseR * this.z;
+      this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      this.twinkleSpeed = Math.random() * 0.04 + 0.01;
+      this.twinkleOffset = Math.random() * Math.PI * 2;
+      this.opacity = Math.random() * 0.6 + 0.2;
+      this.glowRadius = this.r * (Math.random() * 4 + 3);
+    }
+    update(t) {
+      const tw = Math.sin(t * this.twinkleSpeed * 60 + this.twinkleOffset);
+      this.currentOpacity = this.opacity * (0.6 + 0.4 * tw);
+      this.currentR = this.r * (0.85 + 0.15 * tw);
+    }
+    draw() {
+      // Glow
+      const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.glowRadius);
+      grad.addColorStop(0, this.color + Math.floor(this.currentOpacity * 255).toString(16).padStart(2,'0'));
+      grad.addColorStop(0.4, this.color + '18');
+      grad.addColorStop(1, 'transparent');
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.glowRadius, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+      // Core
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.currentR, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = this.currentOpacity;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  // ---- SPARKLES (shooting sparks) ----
+  class Spark {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H * 0.7;
+      this.len = Math.random() * 80 + 30;
+      this.speed = Math.random() * 2 + 0.5;
+      this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.5;
+      this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      this.opacity = 0;
+      this.life = 0;
+      this.maxLife = Math.random() * 80 + 40;
+      this.active = false;
+      this.delay = Math.random() * 600;
+    }
+    update() {
+      if (this.delay > 0) { this.delay--; return; }
+      this.active = true;
+      this.life++;
+      const progress = this.life / this.maxLife;
+      this.opacity = progress < 0.3 ? progress / 0.3 : 1 - (progress - 0.3) / 0.7;
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+      if (this.life >= this.maxLife) this.reset();
+    }
+    draw() {
+      if (!this.active) return;
+      const tx = this.x - Math.cos(this.angle) * this.len;
+      const ty = this.y - Math.sin(this.angle) * this.len;
+      const grad = ctx.createLinearGradient(tx, ty, this.x, this.y);
+      grad.addColorStop(0, 'transparent');
+      grad.addColorStop(1, this.color);
+      ctx.beginPath();
+      ctx.moveTo(tx, ty);
+      ctx.lineTo(this.x, this.y);
+      ctx.strokeStyle = grad;
+      ctx.globalAlpha = this.opacity * 0.8;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+      // tip dot
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = this.opacity;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  // ---- NEBULA CLOUDS ----
+  class Nebula {
+    constructor() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.r  = Math.random() * 250 + 100;
+      this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      this.opacity = Math.random() * 0.03 + 0.01;
+      this.dx = (Math.random() - 0.5) * 0.15;
+      this.dy = (Math.random() - 0.5) * 0.08;
+    }
+    update() {
+      this.x += this.dx;
+      this.y += this.dy;
+      if (this.x < -this.r) this.x = W + this.r;
+      if (this.x > W + this.r) this.x = -this.r;
+      if (this.y < -this.r) this.y = H + this.r;
+      if (this.y > H + this.r) this.y = -this.r;
+    }
+    draw() {
+      const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
+      grad.addColorStop(0, this.color + Math.floor(this.opacity * 255).toString(16).padStart(2,'0'));
+      grad.addColorStop(1, 'transparent');
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+    }
+  }
+
+  // ---- FLOATING BUBBLES ----
+  const bubbles = [];
+  class Bubble {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * W;
+      this.y = H + 100;
+      this.r = Math.random() * 18 + 6;
+      this.vy = -(Math.random() * 0.6 + 0.2);
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      this.opacity = Math.random() * 0.18 + 0.04;
+      this.wobble = Math.random() * Math.PI * 2;
+      this.wobbleSpeed = Math.random() * 0.02 + 0.005;
+    }
+    update() {
+      this.y += this.vy;
+      this.wobble += this.wobbleSpeed;
+      this.x += Math.sin(this.wobble) * 0.5 + this.vx;
+      if (this.y < -50) this.reset();
+    }
+    draw() {
+      const grad = ctx.createRadialGradient(
+        this.x - this.r * 0.3, this.y - this.r * 0.3, 0,
+        this.x, this.y, this.r
+      );
+      grad.addColorStop(0, 'rgba(255,255,255,0.3)');
+      grad.addColorStop(0.5, this.color + '44');
+      grad.addColorStop(1, this.color + '11');
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.globalAlpha = this.opacity * 2;
+      ctx.fill();
+      ctx.strokeStyle = this.color + '55';
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = this.opacity;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  function init() {
+    resize();
+    stars   = Array.from({ length: 260 }, () => new Star());
+    sparks  = Array.from({ length: 14  }, () => new Spark());
+    nebulas = Array.from({ length: 8   }, () => new Nebula());
+    for (let i = 0; i < 35; i++) bubbles.push(new Bubble());
+  }
+
+  function loop() {
+    time += 0.016;
+    ctx.clearRect(0, 0, W, H);
+
+    // Deep space gradient
+    const bg = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H) * 0.8);
+    bg.addColorStop(0,   '#0d2b1f');
+    bg.addColorStop(0.4, '#071812');
+    bg.addColorStop(1,   '#030a08');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // Nebulas
+    nebulas.forEach(n => { n.update(); n.draw(); });
+
+    // Stars
+    stars.forEach(s => { s.update(time); s.draw(); });
+
+    // Sparks / shooting stars
+    sparks.forEach(sp => { sp.update(); sp.draw(); });
+
+    // Bubbles
+    bubbles.forEach(b => { b.update(); b.draw(); });
+
+    requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize', () => { resize(); stars.forEach(s => { s.x = Math.random()*W; s.y = Math.random()*H; }); });
+  init();
+  loop();
+})();
+
+/* ===== HERO PARTICLE EMITTER ===== */
+(function () {
+  const container = document.getElementById('heroParticles');
+  if (!container) return;
+  const COLORS = ['#4CAF50','#F4C542','#E94E77','#8E44AD','#3498DB','#F28C28','#ffffff'];
+  function createParticle() {
+    const p = document.createElement('div');
+    p.classList.add('hero-particle');
+    const size = Math.random() * 10 + 3;
+    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const left = Math.random() * 100;
+    const dur  = Math.random() * 12 + 8;
+    const delay = Math.random() * 8;
+    p.style.cssText = `
+      width:${size}px; height:${size}px;
+      background:${color};
+      left:${left}%;
+      animation-duration:${dur}s;
+      animation-delay:${delay}s;
+      opacity:0;
+      box-shadow: 0 0 ${size*2}px ${color}88;
+    `;
+    container.appendChild(p);
+    setTimeout(() => { if (p.parentNode) p.parentNode.removeChild(p); }, (dur + delay) * 1000 + 1000);
+  }
+  setInterval(createParticle, 600);
+  for (let i = 0; i < 12; i++) createParticle();
+})();
+
+/* ===== NAVBAR SCROLL BEHAVIOUR ===== */
+const navbar = document.getElementById('navbar');
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+  // Scrolled class
+  if (window.scrollY > 60) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+
+  // Active nav link
+  let current = '';
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 120;
+    if (window.scrollY >= top) current = sec.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+
+  // Back to top
+  const btt = document.getElementById('backToTop');
+  if (window.scrollY > 500) btt.classList.add('visible');
+  else btt.classList.remove('visible');
+});
+
+/* ===== HAMBURGER ===== */
+const hamburger = document.getElementById('hamburger');
+const navLinksMenu = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  navLinksMenu.classList.toggle('open');
+  hamburger.classList.toggle('active');
+});
+navLinksMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinksMenu.classList.remove('open');
+    hamburger.classList.remove('active');
+  });
+});
+
+/* ===== SCROLL REVEAL ===== */
+const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* ===== COUNTER ANIMATION ===== */
+function animateCounter(el, target, duration = 1800) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const update = () => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.round(start);
+    if (start < target) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll('.stat-num, .n-num');
+      counters.forEach(c => {
+        const target = parseInt(c.dataset.target);
+        animateCounter(c, target);
+      });
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+
+document.querySelectorAll('.hero-stats, .numbers-row').forEach(el => counterObserver.observe(el));
+
+/* ===== 3D TILT EFFECT ===== */
+function initTilt(el) {
+  el.addEventListener('mousemove', e => {
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width  / 2;
+    const cy = rect.top  + rect.height / 2;
+    const dx = (e.clientX - cx) / rect.width;
+    const dy = (e.clientY - cy) / rect.height;
+    const tiltX = dy * -12;
+    const tiltY = dx *  12;
+    el.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(6px)`;
+    el.style.transition = 'transform 0.1s ease';
+    const shine = el.querySelector('.tilt-shine');
+    if (shine) {
+      shine.style.background = `radial-gradient(circle at ${(dx+0.5)*100}% ${(dy+0.5)*100}%, rgba(255,255,255,0.15), transparent)`;
+    }
+  });
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateZ(0)';
+    el.style.transition = 'transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)';
+  });
+}
+document.querySelectorAll('.tilt-card').forEach(initTilt);
+
+/* ===== FAQ ACCORDION ===== */
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    // Open clicked (if it was closed)
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+/* ===== SMOOTH SCROLL ===== */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const target = document.querySelector(id);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+/* ===== BACK TO TOP ===== */
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ===== PARALLAX HERO SHAPES ===== */
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  document.querySelectorAll('.floating-shape').forEach((shape, i) => {
+    const speed = (i + 1) * 0.08;
+    shape.style.transform = `translateY(${scrollY * speed}px)`;
+  });
+});
+
+/* ===== SOCIAL CARD PULSE ===== */
+document.querySelectorAll('.social-glow-card').forEach(card => {
+  const color = card.dataset.glow;
+  setInterval(() => {
+    card.style.boxShadow = `0 0 ${30 + Math.random() * 20}px ${color}55`;
+  }, 1200);
+});
+
+/* ===== ACTIVE SECTION HIGHLIGHT (nav dots could go here) ===== */
+/* ===== PAGE LOAD ANIMATION ===== */
+window.addEventListener('load', () => {
+  document.body.style.opacity = '0';
+  document.body.style.transition = 'opacity 0.6s ease';
+  requestAnimationFrame(() => {
+    document.body.style.opacity = '1';
+  });
+});
+</script>
+</body>
+</html>

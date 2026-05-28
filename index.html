@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conscious Family Centre | Where Children Learn Through Play</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- CANVAS BACKGROUND -->
+<canvas id="starCanvas"></canvas>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <div class="logo-svg-wrap">
+        <!-- SVG Logo recreation of CFC logo -->
+        <svg width="56" height="56" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ground hill -->
+          <ellipse cx="60" cy="98" rx="52" ry="12" fill="#1F6B3A" opacity="0.3"/>
+          <!-- House body -->
+          <rect x="44" y="68" width="32" height="26" rx="3" fill="#1F6B3A"/>
+          <!-- Door -->
+          <rect x="54" y="78" width="12" height="16" rx="2" fill="#fff" opacity="0.9"/>
+          <!-- Left tree trunk -->
+          <rect x="20" y="72" width="6" height="20" rx="3" fill="#1F6B3A"/>
+          <!-- Right tree trunk -->
+          <rect x="94" y="72" width="6" height="20" rx="3" fill="#1F6B3A"/>
+          <!-- Left person arms up -->
+          <circle cx="23" cy="64" r="5" fill="#1F6B3A"/>
+          <line x1="14" y1="70" x2="32" y2="70" stroke="#1F6B3A" stroke-width="4" stroke-linecap="round"/>
+          <!-- Right person arms up -->
+          <circle cx="97" cy="64" r="5" fill="#1F6B3A"/>
+          <line x1="88" y1="70" x2="106" y2="70" stroke="#1F6B3A" stroke-width="4" stroke-linecap="round"/>
+          <!-- Colorful leaves - left tree -->
+          <circle cx="14" cy="46" r="7" fill="#E94E77" opacity="0.9"/>
+          <circle cx="24" cy="38" r="7" fill="#F4C542" opacity="0.9"/>
+          <circle cx="34" cy="44" r="7" fill="#4CAF50" opacity="0.9"/>
+          <circle cx="16" cy="56" r="6" fill="#3498DB" opacity="0.9"/>
+          <circle cx="30" cy="54" r="6" fill="#8E44AD" opacity="0.9"/>
+          <circle cx="22" cy="30" r="5" fill="#F28C28" opacity="0.9"/>
+          <!-- Colorful leaves - right tree -->
+          <circle cx="106" cy="46" r="7" fill="#4CAF50" opacity="0.9"/>
+          <circle cx="96" cy="38" r="7" fill="#E94E77" opacity="0.9"/>
+          <circle cx="86" cy="44" r="7" fill="#F4C542" opacity="0.9"/>
+          <circle cx="104" cy="56" r="6" fill="#F28C28" opacity="0.9"/>
+          <circle cx="90" cy="54" r="6" fill="#3498DB" opacity="0.9"/>
+          <circle cx="98" cy="30" r="5" fill="#8E44AD" opacity="0.9"/>
+          <!-- Center crown leaves -->
+          <circle cx="52" cy="52" r="8" fill="#4CAF50" opacity="0.9"/>
+          <circle cx="60" cy="44" r="9" fill="#1F6B3A" opacity="0.9"/>
+          <circle cx="68" cy="52" r="8" fill="#4CAF50" opacity="0.9"/>
+          <circle cx="60" cy="58" r="7" fill="#1F6B3A" opacity="0.8"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-line1">conscious</span>
+        <span class="logo-line2">family</span>
+        <span class="logo-line3">centre</span>
+      </div>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#programs" class="nav-link">Programs</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========== SECTION 1: HOME / HERO ========== -->
+<section id="home" class="hero-section">
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-content">
+    <div class="hero-badge reveal-up">
+      <span class="badge-dot"></span>
+      Nature-Connected Learning · Abuja, Nigeria
+    </div>
+    <h1 class="hero-title reveal-up delay-1">
+      Where <span class="gradient-text">Children Grow</span><br>
+      and <span class="gradient-text-2">Families Bloom</span>
+    </h1>
+    <p class="hero-subtitle reveal-up delay-2">
+      A safe, nurturing space in the heart of Abuja where little ones<br class="desktop-br">
+      learn through play, explore through nature, and families thrive together.
+    </p>
+    <div class="hero-actions reveal-up delay-3">
+      <a href="#programs" class="btn-primary">
+        <span>Explore Programs</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#about" class="btn-ghost">Learn Our Story</a>
+    </div>
+    <div class="hero-stats reveal-up delay-4">
+      <div class="stat-item">
+        <span class="stat-num" data-target="200">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Families Served</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="4">0</span>
+        <span class="stat-label">Core Programs</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="5">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Years of Joy</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <span>Scroll to explore</span>
+  </div>
+
+  <!-- Floating 3D shapes -->
+  <div class="floating-shape shape-1"></div>
+  <div class="floating-shape shape-2"></div>
+  <div class="floating-shape shape-3"></div>
+  <div class="floating-shape shape-4"></div>
+  <div class="floating-shape shape-5"></div>
+</section>
+
+<!-- ========== SECTION 2: ABOUT ========== -->
+<section id="about" class="about-section">
+  <div class="section-bg-deco about-deco"></div>
+  <div class="container">
+
+    <div class="section-header reveal-up">
+      <div class="section-tag">
+        <span class="tag-leaf">🌿</span> About Us
+      </div>
+      <h2 class="section-title">More Than a Playgroup.<br><span class="highlight-green">A Community.</span></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text-block reveal-left">
+        <p class="about-lead">
+          The <strong>Conscious Family Centre (CFC)</strong> is a nature-connected alternative education and family playgroup space in Abuja designed for children ages <em>0 to 10</em>.
+        </p>
+        <p class="about-body">
+          We offer stay-and-play sessions, a homeschool hub, and community support for parents and caregivers — all within a thoughtful, warm, and intentional environment that honours the child's natural way of learning.
+        </p>
+        <div class="about-hours glass-card">
+          <div class="hours-icon">🕙</div>
+          <div>
+            <p class="hours-title">Opening Hours</p>
+            <p class="hours-time">Monday – Saturday &nbsp;|&nbsp; <strong>10:00 AM – 3:00 PM</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission & Vision -->
+      <div class="mv-stack reveal-right">
+        <div class="mv-card glass-card tilt-card" data-color="#1F6B3A">
+          <div class="mv-icon">🌱</div>
+          <h3>Our Mission</h3>
+          <p>To create a safe, joy-filled, and intentional space where children aged 0–10 discover themselves through nature, creativity, and conscious play — while empowering families with the community and tools they need to thrive.</p>
+        </div>
+        <div class="mv-card glass-card tilt-card" data-color="#8E44AD">
+          <div class="mv-icon">🔭</div>
+          <h3>Our Vision</h3>
+          <p>To be Abuja's leading nature-inspired family learning hub — pioneering a new standard of holistic, conscious early childhood education that nurtures the whole child: mind, body, and spirit.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Numbers -->
+    <div class="numbers-row reveal-up">
+      <div class="number-card tilt-card">
+        <span class="n-num" data-target="200">0</span><span class="n-plus">+</span>
+        <span class="n-label">Families Welcomed</span>
+        <div class="n-bar" style="background:#1F6B3A"></div>
+      </div>
+      <div class="number-card tilt-card">
+        <span class="n-num" data-target="98">0</span><span class="n-plus">%</span>
+        <span class="n-label">Parent Satisfaction</span>
+        <div class="n-bar" style="background:#F4C542"></div>
+      </div>
+      <div class="number-card tilt-card">
+        <span class="n-num" data-target="12">0</span><span class="n-plus">+</span>
+        <span class="n-label">Weekly Activities</span>
+        <div class="n-bar" style="background:#E94E77"></div>
+      </div>
+      <div class="number-card tilt-card">
+        <span class="n-num" data-target="5">0</span><span class="n-plus">+</span>
+        <span class="n-label">Years of Impact</span>
+        <div class="n-bar" style="background:#8E44AD"></div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="section-header reveal-up" style="margin-top:5rem">
+      <div class="section-tag">
+        <span class="tag-leaf">💬</span> Families Say It Best
+      </div>
+      <h2 class="section-title">Stories That <span class="highlight-yellow">Warm Our Hearts</span></h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testi-card glass-card tilt-card reveal-up delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"CFC completely transformed how my daughter relates to learning. She wakes up every morning asking to go to the Centre. The staff are warm, intentional, and truly conscious parents themselves."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#1F6B3A">A</div>
+          <div>
+            <strong>Amaka O.</strong>
+            <span>Mother of 2 · Maitama, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The Homeschool Hub gave us the community we desperately needed as new homeschool parents. My son made friends, gained structure, and absolutely loves Waka Wednesdays!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#F28C28">B</div>
+          <div>
+            <strong>Biodun K.</strong>
+            <span>Father of 1 · Wuse, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The Nanny Training program was incredibly eye-opening. My nanny came back with so much confidence, knowledge, and real practical skills. The difference is night and day!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#E94E77">C</div>
+          <div>
+            <strong>Chioma B.</strong>
+            <span>Parent · Garki, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Forest School sessions are genuinely magical. Watching my shy 4-year-old blossom into a curious, confident explorer — right here in Abuja — is something I never expected."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#8E44AD">F</div>
+          <div>
+            <strong>Fatimah A.</strong>
+            <span>Mother of 3 · Asokoro, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The STEAM Holiday Camp kept my twins engaged, creative, and learning all through the break. Absolutely worth every moment. We'll be back every holiday!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#3498DB">O</div>
+          <div>
+            <strong>Obinna E.</strong>
+            <span>Parent of Twins · Gwarinpa, Abuja</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card glass-card tilt-card reveal-up delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"CFC is not just a programme — it's a lifestyle. We've met our closest parent friends here. The community evenings, the shared values, it's really special. Abuja needs more of this."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#F4C542">N</div>
+          <div>
+            <strong>Ngozi L.</strong>
+            <span>Community Member · Utako, Abuja</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 3: PROGRAMS ========== -->
+<section id="programs" class="programs-section">
+  <div class="section-bg-deco programs-deco"></div>
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-tag">
+        <span class="tag-leaf">🌳</span> What We Offer
+      </div>
+      <h2 class="section-title">Programs Built for <span class="highlight-pink">Little Explorers</span></h2>
+      <p class="section-subtitle">Every child is unique. Every program is crafted with love, intention, and research-backed methodology.</p>
+    </div>
+
+    <!-- Core Programs -->
+    <div class="programs-label reveal-up">
+      <span class="programs-label-text">✦ Core Programs</span>
+    </div>
+
+    <div class="programs-grid">
+      <div class="program-card tilt-card reveal-up delay-1" data-accent="#1F6B3A">
+        <div class="program-icon-wrap" style="background:linear-gradient(135deg,#1F6B3A,#4CAF50)">
+          <span class="program-icon">🏡</span>
+        </div>
+        <div class="program-content">
+          <h3>Stay &amp; Play Sessions</h3>
+          <p>Drop in with your little one for structured, nature-inspired free play. Perfect for children 0–5 and caregivers who want guided playtime in a safe, stimulating environment.</p>
+          <ul class="program-features">
+            <li><span class="feat-dot" style="background:#4CAF50"></span>Ages 0 – 5</li>
+            <li><span class="feat-dot" style="background:#4CAF50"></span>Drop-in friendly</li>
+            <li><span class="feat-dot" style="background:#4CAF50"></span>Guided by educators</li>
+          </ul>
+        </div>
+        <div class="program-glow" style="background:#1F6B3A"></div>
+      </div>
+
+      <div class="program-card tilt-card reveal-up delay-2" data-accent="#3498DB">
+        <div class="program-icon-wrap" style="background:linear-gradient(135deg,#1a6fa0,#3498DB)">
+          <span class="program-icon">📚</span>
+        </div>
+        <div class="program-content">
+          <h3>Homeschool Hub &amp; Community</h3>
+          <p>A dedicated co-learning space for homeschooling families — with curriculum support, peer socialisation, parent circles, and expert-led enrichment sessions.</p>
+          <ul class="program-features">
+            <li><span class="feat-dot" style="background:#3498DB"></span>Ages 4 – 10</li>
+            <li><span class="feat-dot" style="background:#3498DB"></span>Curriculum aligned</li>
+            <li><span class="feat-dot" style="background:#3498DB"></span>Parent community</li>
+          </ul>
+        </div>
+        <div class="program-glow" style="background:#3498DB"></div>
+      </div>
+
+      <div class="program-card tilt-card reveal-up delay-3" data-accent="#F28C28">
+        <div class="program-icon-wrap" style="background:linear-gradient(135deg,#c56a0a,#F28C28)">
+          <span class="program-icon">👩‍🏫</span>
+        </div>
+        <div class="program-content">
+          <h3>Nanny Intensive Training</h3>
+          <p>Professional development for caregivers covering child development, age-appropriate play, nutrition basics, emotional intelligence, and conscious caregiving techniques.</p>
+          <ul class="program-features">
+            <li><span class="feat-dot" style="background:#F28C28"></span>Certificate awarded</li>
+            <li><span class="feat-dot" style="background:#F28C28"></span>Practical skills</li>
+            <li><span class="feat-dot" style="background:#F28C28"></span>Expert trainers</li>
+          </ul>
+        </div>
+        <div class="program-glow" style="background:#F28C28"></div>
+      </div>
+
+      <div class="program-card tilt-card reveal-up delay-1" data-accent="#8E44AD">
+        <div class="program-icon-wrap" style="background:linear-gradient(135deg,#6a1fa0,#8E44AD)">
+          <span class="program-icon">🚀</span>
+        </div>
+        <div class="program-content">
+          <h3>Holiday Camps &amp; S.T.E.A.M</h3>
+          <p>Action-packed holiday programmes featuring Scavenger Hunts, Messy Play, Science experiments, Technology discovery, Engineering challenges, Art, and Math adventures.</p>
+          <ul class="program-features">
+            <li><span class="feat-dot" style="background:#8E44AD"></span>Ages 3 – 10</li>
+            <li><span class="feat-dot" style="background:#8E44AD"></span>Holiday periods</li>
+            <li><span class="feat-dot" style="background:#8E44AD"></span>Hands-on STEAM</li>
+          </ul>
+        </div>
+        <div class="program-glow" style="background:#8E44AD"></div>
+      </div>
+    </div>
+
+    <!-- Core Activities -->
+    <div class="programs-label reveal-up" style="margin-top:4rem">
+      <span class="programs-label-text" style="background:linear-gradient(90deg,#E94E77,#F28C28)">✦ Core Activities</span>
+    </div>
+
+    <div class="activities-grid">
+      <div class="activity-card glass-card tilt-card reveal-up delay-1">
+        <div class="activity-emoji">🌲</div>
+        <h3>Forest School &amp; Outdoor Play</h3>
+        <p>Children explore nature freely — climbing, digging, building, observing. Research-backed forest schooling that nurtures resilience, curiosity, and deep environmental connection.</p>
+        <div class="activity-tag" style="color:#1F6B3A;border-color:#1F6B3A">Nature-Immersive</div>
+      </div>
+      <div class="activity-card glass-card tilt-card reveal-up delay-2">
+        <div class="activity-emoji">🎨</div>
+        <h3>Creative Arts &amp; Crafts</h3>
+        <p>From painting and sculpture to collage and printmaking — open-ended creative expression that builds fine motor skills, self-confidence, and artistic sensibility in every child.</p>
+        <div class="activity-tag" style="color:#E94E77;border-color:#E94E77">Creative Expression</div>
+      </div>
+      <div class="activity-card glass-card tilt-card reveal-up delay-3">
+        <div class="activity-emoji">🎯</div>
+        <h3>Weekly Enrichment Clubs</h3>
+        <p>Rotating themed clubs covering chess, storytelling, cooking, music, movement and more — giving children new challenges, friendships, and joyful skill-building every single week.</p>
+        <div class="activity-tag" style="color:#F28C28;border-color:#F28C28">Skill Building</div>
+      </div>
+      <div class="activity-card glass-card tilt-card reveal-up delay-1">
+        <div class="activity-emoji">🚌</div>
+        <h3>Waka Wednesday Excursions</h3>
+        <p>Every Wednesday is an adventure! Children visit museums, parks, farms, cultural sites, and community spaces — expanding their world and growing into curious, confident citizens.</p>
+        <div class="activity-tag" style="color:#3498DB;border-color:#3498DB">Community Exploration</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SECTION 4: CONTACT ========== -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-tag">
+        <span class="tag-leaf">📍</span> Find Us
+      </div>
+      <h2 class="section-title">Come Say <span class="highlight-yellow">Hello</span> 👋</h2>
+      <p class="section-subtitle">We'd love to welcome you and your little ones into our community.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Phone -->
+      <div class="contact-card glass-card tilt-card reveal-up delay-1">
+        <div class="contact-icon-wrap" style="background:linear-gradient(135deg,#1F6B3A,#4CAF50)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <h3>Call Us</h3>
+        <a href="tel:08035183784" class="contact-value">08035183784</a>
+        <p class="contact-note">Mon–Sat · 10AM–3PM</p>
+      </div>
+
+      <!-- Location -->
+      <div class="contact-card glass-card tilt-card reveal-up delay-2">
+        <div class="contact-icon-wrap" style="background:linear-gradient(135deg,#F28C28,#F4C542)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Find Us</h3>
+        <p class="contact-value small">Opp. Legacy Centre, Wuse 2<br>Abuja · Inside BMT Garden</p>
+        <a href="https://maps.google.com/?q=Wuse+2+Abuja" target="_blank" class="contact-link">Open in Maps ↗</a>
+      </div>
+
+      <!-- Instagram -->
+      <div class="contact-card glass-card tilt-card reveal-up delay-3 social-glow-card" data-glow="#E94E77">
+        <a href="https://www.instagram.com/consciousfamilycentre/" target="_blank" class="social-link-full">
+          <div class="contact-icon-wrap social-glow instagram-glow">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <h3>Instagram</h3>
+          <span class="contact-value social-handle">@consciousfamilycentre</span>
+          <span class="social-cta">Visit our Page ✦</span>
+        </a>
+      </div>
+
+      <!-- Facebook -->
+      <div class="contact-card glass-card tilt-card reveal-up delay-1 social-glow-card" data-glow="#3498DB">
+        <a href="https://www.facebook.com/reel/1488788116158630/?app=fbl" target="_blank" class="social-link-full">
+          <div class="contact-icon-wrap social-glow facebook-glow">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </div>
+          <h3>Facebook</h3>
+          <span class="contact-value social-handle">Conscious Family Centre</span>
+          <span class="social-cta">Visit our Page ✦</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hours bar -->
+    <div class="hours-banner reveal-up glass-card">
+      <div class="hours-banner-icon">🕙</div>
+      <div class="hours-banner-text">
+        <strong>We're open Monday – Saturday</strong>
+        <span>10:00 AM &nbsp;–&nbsp; 3:00 PM &nbsp;·&nbsp; Come visit us at BMT Garden, Wuse 2, Abuja</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SECTION 5: FAQ ========== -->
+<section id="faq" class="faq-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-tag">
+        <span class="tag-leaf">❓</span> Questions
+      </div>
+      <h2 class="section-title">Frequently Asked <span class="highlight-green">Questions</span></h2>
+      <p class="section-subtitle">Everything you need to know before you visit us for the first time.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item reveal-up delay-1">
+        <button class="faq-question" aria-expanded="false">
+          <span>What age groups does CFC cater for?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>CFC warmly welcomes children aged <strong>0 to 10 years</strong>. Our programmes are carefully designed to match different developmental stages — from babies and toddlers in Stay &amp; Play, to older children in the Homeschool Hub and STEAM camps.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-2">
+        <button class="faq-question" aria-expanded="false">
+          <span>Do I need to book in advance?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>For <strong>Stay &amp; Play</strong> sessions, drop-ins are welcome! For Homeschool Hub, Nanny Training, and Holiday Camps, we do recommend contacting us in advance to confirm availability and secure a spot.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-3">
+        <button class="faq-question" aria-expanded="false">
+          <span>What makes CFC different from a regular daycare or school?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>CFC is <strong>not a daycare or conventional school</strong>. We are a conscious, nature-connected learning community. Our philosophy is rooted in child-led play, forest schooling, emotional intelligence, creative expression, and community — values that are rarely found in traditional childcare settings in Abuja.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-1">
+        <button class="faq-question" aria-expanded="false">
+          <span>Can parents stay during the sessions?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely! Many of our sessions are designed as <strong>stay-and-play</strong> experiences where parents and caregivers are encouraged to participate. We believe in whole-family engagement and building a strong parent community.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-2">
+        <button class="faq-question" aria-expanded="false">
+          <span>What is Waka Wednesday?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>"Waka" means "to walk/go" in Nigerian Pidgin. <strong>Waka Wednesday</strong> is our beloved weekly excursion day where children venture out into Abuja — visiting museums, parks, farms, cultural spaces, and community places to expand their worldview and build confidence in real-world settings.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-3">
+        <button class="faq-question" aria-expanded="false">
+          <span>Is CFC only for homeschoolers?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>Not at all! While we have a dedicated Homeschool Hub, CFC is open to <strong>all families</strong> — whether your children attend conventional school, are homeschooled, or are still too young for school. We are a community space for everyone who values conscious, nature-connected childhood.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-1">
+        <button class="faq-question" aria-expanded="false">
+          <span>What should my child wear or bring?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>Comfortable, <strong>play-friendly clothing</strong> is best — we get messy, muddy, and creative! Closed shoes are recommended for outdoor sessions. For Stay &amp; Play, you can bring snacks and a change of clothes. We provide all art and craft materials.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal-up delay-2">
+        <button class="faq-question" aria-expanded="false">
+          <span>How do I enrol or find out more?</span>
+          <div class="faq-icon"><span>+</span></div>
+        </button>
+        <div class="faq-answer">
+          <p>The easiest way is to <strong>call or WhatsApp us on 08035183784</strong>, or send us a DM on Instagram <em>@consciousfamilycentre</em>. You can also simply visit us during opening hours (Mon–Sat, 10AM–3PM) at BMT Garden, Wuse 2, Abuja — we'd love to show you around!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-glow"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="44" height="44" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="98" rx="52" ry="12" fill="#4CAF50" opacity="0.3"/>
+            <rect x="44" y="68" width="32" height="26" rx="3" fill="#4CAF50"/>
+            <rect x="54" y="78" width="12" height="16" rx="2" fill="#1F6B3A" opacity="0.8"/>
+            <rect x="20" y="72" width="6" height="20" rx="3" fill="#4CAF50"/>
+            <rect x="94" y="72" width="6" height="20" rx="3" fill="#4CAF50"/>
+            <circle cx="23" cy="64" r="5" fill="#4CAF50"/>
+            <circle cx="97" cy="64" r="5" fill="#4CAF50"/>
+            <circle cx="14" cy="46" r="7" fill="#E94E77"/>
+            <circle cx="24" cy="38" r="7" fill="#F4C542"/>
+            <circle cx="34" cy="44" r="7" fill="#4CAF50"/>
+            <circle cx="16" cy="56" r="6" fill="#3498DB"/>
+            <circle cx="30" cy="54" r="6" fill="#8E44AD"/>
+            <circle cx="106" cy="46" r="7" fill="#4CAF50"/>
+            <circle cx="96" cy="38" r="7" fill="#E94E77"/>
+            <circle cx="86" cy="44" r="7" fill="#F4C542"/>
+            <circle cx="104" cy="56" r="6" fill="#F28C28"/>
+            <circle cx="90" cy="54" r="6" fill="#3498DB"/>
+            <circle cx="52" cy="52" r="8" fill="#4CAF50"/>
+            <circle cx="60" cy="44" r="9" fill="#fff" opacity="0.9"/>
+            <circle cx="68" cy="52" r="8" fill="#4CAF50"/>
+          </svg>
+          <div class="footer-logo-text">
+            <span>conscious</span>
+            <span>family centre</span>
+          </div>
+        </div>
+        <p class="footer-tagline">A safe, nurturing space where children learn through play, and families grow together.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/consciousfamilycentre/" target="_blank" class="footer-social instagram-glow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/reel/1488788116158630/?app=fbl" target="_blank" class="footer-social facebook-glow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#programs">Stay &amp; Play</a></li>
+          <li><a href="#programs">Homeschool Hub</a></li>
+          <li><a href="#programs">Nanny Training</a></li>
+          <li><a href="#programs">Holiday Camps</a></li>
+          <li><a href="#programs">Waka Wednesday</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <p class="footer-address">Opp. Legacy Centre, Wuse 2, Abuja<br>Inside BMT Garden</p>
+        <p class="footer-hours">Mon–Sat · 10:00 AM – 3:00 PM</p>
+        <a href="tel:08035183784" class="footer-phone">📞 08035183784</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Conscious Family Centre · Abuja, Nigeria · All rights reserved</p>
+      <p class="footer-love">Made with <span class="love-heart">♥</span> for conscious families</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
